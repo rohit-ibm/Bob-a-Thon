@@ -1,0 +1,44 @@
+{
+    "name": "bob-monday-integration",
+    "version": "2.0.0",
+    "description": "Bob Triage Engine with Monday.com Integration - Automated SDLC Assistant",
+    "main": "src/server.js",
+    "scripts": {
+        "start": "node src/server.js",
+        "dev": "nodemon src/server.js",
+        "test": "node tests/integration-test.js",
+        "lint": "eslint src/**/*.js",
+        "format": "prettier --write \"src/**/*.{js,json}\"",
+        "build": "echo 'No build step required'",
+        "deploy": "echo 'Deployment handled by GitHub Actions'"
+    },
+    "keywords": [
+        "bob",
+        "triage",
+        "monday.com",
+        "sdlc",
+        "automation",
+        "nlp",
+        "issue-tracking",
+        "project-management"
+    ],
+    "author": "IBM SDN-COE-IND",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ibm-sevone-npm/COE-Vector-Bobathon.git"
+    },
+    "engines": {
+        "node": ">=14.0.0",
+        "npm": ">=6.0.0"
+    },
+    "dependencies": {
+        "express": "^4.18.2",
+        "cors": "^2.8.5"
+    },
+    "devDependencies": {
+        "nodemon": "^3.0.1",
+        "eslint": "^8.50.0",
+        "prettier": "^3.0.3"
+    }
+}

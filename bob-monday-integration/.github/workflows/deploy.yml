@@ -1,0 +1,38 @@
+name: Simple Deploy
+
+on:
+  push:
+    branches:
+      - dev
+
+env:
+  APP_SERVER: "9.60.160.210"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H $APP_SERVER >> ~/.ssh/known_hosts
+
+      - name: Deploy to Server
+        run: |
+          ssh ${{ secrets.SSH_USER }}@$APP_SERVER << EOF
+            cd /home/${{ secrets.SSH_USER }}/my-app
+
+            echo "📥 Pulling latest code..."
+            git pull origin dev
+
+            echo "🔄 Restarting app..."
+            pm2 restart all || pm2 start app.js
+
+            echo "✅ Deployment done"
+          EOF
