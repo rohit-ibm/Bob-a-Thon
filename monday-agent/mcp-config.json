@@ -1,0 +1,14 @@
+{
+    "mcpServers": {
+        "monday": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-monday"
+            ],
+            "env": {
+                "MONDAY_API_KEY": "eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjY1MzI0MTQ0OSwiYWFpIjoxMSwidWlkIjo1Mzk0MTI5NywiaWFkIjoiMjAyNi0wNS0wNFQwNToyNjozNi4yOTBaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6MTM1MzY5ODEsInJnbiI6InVzZTEifQ.YWOIHkG2AZ1fAwpdCWSHt7pHdOnSH6uxDpXJvgnLoh4"
+            }
+        }
+    }
+}
